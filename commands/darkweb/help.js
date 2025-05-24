@@ -6,7 +6,7 @@ module.exports = {
     description: "shows the help menu of the bot",
     category: "help",
     usage: "help",
-    botPermissions: [PermissionsBitField.Flags.EmbedLinks],
+    botPermissions: [],
     userPermissions: [],
 
     async run(client, message, args) {

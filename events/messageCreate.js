@@ -62,7 +62,7 @@ module.exports.run = async (client, message) => {
             if (command) {
 
                 let p1 = ["SEND_MESSAGES", "EMBED_LINKS"]
-                if (!message.guild.members.me.permissionsIn(message.channel).has(p1)) {
+                if (!message.guild.members.me.permissionsIn(message.channel).has([PermissionsBitField.Flags.SendMessages | PermissionsBitField.Flags.EmbedLinks])) {
                     return message.author.send({
                         embeds: [
                             new EmbedBuilder({
@@ -107,7 +107,7 @@ module.exports.run = async (client, message) => {
 
                 command.botPermissions.forEach((permission) => {
                     if (r === true) return;
-                    if (!message.guild.members.me.permissionsIn(message.channel).has(PermissionsBitField.Flags.permission)) {
+                    if (!message.guild.members.me.permissionsIn(message.channel).has(PermissionsBitField.Flags.EmbedLinks)) {
                         r = true;
                         return message.reply(
                             `${client.emoji.fail}| I NEED **\`${client.bitfieldToName(permission)}\`** PERMISSION FIRST TO EXECUTE THIS COMMAND!!`
